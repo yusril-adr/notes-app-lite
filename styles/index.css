@@ -1,0 +1,46 @@
+button, input {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-size-normal {
+  font-size: 1rem;
+  line-height: 2.5rem;
+}
+
+.text-light {
+  font-weight: lighter;
+}
+
+.navbar-padding {
+  padding: .5rem 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.padding-x-1\/2 {
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.form-group:not(:first-child) {
+  margin-top: 1rem;
+}
