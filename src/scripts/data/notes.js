@@ -104,6 +104,6 @@ const notesData = [
     createdAt: '2022-10-28T08:00:20.120Z',
     archived: false,
   },
-];
+]
 
-export default notesData;
+export default notesData

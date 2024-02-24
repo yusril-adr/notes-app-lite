@@ -1,21 +1,21 @@
-import App from '../../app.js';
-import notesData from '../../data/notes.js';
+import App from '../../app'
+import notesData from '../../data/notes'
 
 class AppBar extends HTMLElement {
-  static observedAttributes = ['title'];
+  static observedAttributes = ['title']
 
   constructor() {
-    super();
-  
-    this._title = this.getAttribute('title');
+    super()
+
+    this._title = this.getAttribute('title')
   }
-  
+
   connectedCallback() {
-    this.render();
+    this.render()
   }
 
   render() {
-   this.innerHTML = `
+    this.innerHTML = `
     <nav class="uk-navbar-container">
       <div class="uk-container">
         <div class="uk-navbar navbar-padding">
@@ -49,61 +49,60 @@ class AppBar extends HTMLElement {
         </form>
       </div>
     </div>
-   `;
+   `
 
-   this._modalEl = this.querySelector('#modal-search');
-   this._initValue();
-   this._initEvent();
+    this._modalEl = this.querySelector('#modal-search')
+    this._initValue()
+    this._initEvent()
   }
 
   _initValue() {
-    const searchParams = (new URL(window.location.href)).searchParams;
-    const keyword = searchParams.get('search');
+    const { searchParams } = new URL(window.location.href)
+    const keyword = searchParams.get('search')
 
     if (keyword) {
       this.querySelectorAll('form input').forEach((inputEl) => {
-        inputEl.value = keyword;
-      });
+        inputEl.value = keyword
+      })
     }
   }
 
   _initEvent() {
     window.addEventListener('hashchange', () => {
-      this._initValue();
-    });
+      this._initValue()
+    })
 
     this.querySelectorAll('form').forEach((formEl) => {
       formEl.addEventListener('submit', (event) => {
-        event.preventDefault();
-      });
-    });
+        event.preventDefault()
+      })
+    })
 
     this.querySelectorAll('form input').forEach((inputEl) => {
       inputEl.addEventListener('keyup', (event) => {
-        let newUrl = window.location.href.split('?')[0];
-        newUrl += `?search=${event.target.value}`;
-        window.history.pushState({ path: newUrl },'', newUrl );
-        App.initNotes(notesData);
-      });
-    });
+        let newUrl = window.location.href.split('?')[0]
+        newUrl += `?search=${event.target.value}`
+        window.history.pushState({ path: newUrl }, '', newUrl)
+        App.initNotes(notesData)
+      })
+    })
   }
 
   disconnectedCallback() {
-    window.removeEventListener('hashchange');
+    window.removeEventListener('hashchange')
     this.querySelectorAll('form').forEach((formEl) => {
-      formEl.removeEventListener('submit');
-    });
+      formEl.removeEventListener('submit')
+    })
 
     this.querySelectorAll('form input').forEach((inputEl) => {
-      inputEl.removeEventListener('keyup');
-    });
+      inputEl.removeEventListener('keyup')
+    })
   }
 
   attributeChangedCallback(name, oldVale, newValue) {
-    this[`_${name}`] = newValue;
-    this.render();
+    this[`_${name}`] = newValue
+    this.render()
   }
 }
 
-
-customElements.define('app-bar', AppBar);
+customElements.define('app-bar', AppBar)

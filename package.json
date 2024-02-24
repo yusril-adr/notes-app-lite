@@ -1,0 +1,46 @@
+{
+  "name": "notes-app-lite",
+  "version": "1.0.0",
+  "main": "webpack.prod.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "prettier": "prettier . --write",
+    "build": "webpack --config webpack.prod.js",
+    "serve": "http-server dist"
+  },
+  "author": "Yusril A. P.",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "animejs": "^3.2.2",
+    "dayjs": "^1.11.10",
+    "sweetalert2": "^11.10.5",
+    "uikit": "^3.18.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.10.0",
+    "css-minimizer-webpack-plugin": "^6.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "html-webpack-plugin": "^5.6.0",
+    "http-server": "^14.1.1",
+    "mini-css-extract-plugin": "^2.8.0",
+    "postcss-loader": "^8.1.0",
+    "prettier": "3.2.5",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "webpack": "^5.90.3",
+    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.2",
+    "webpack-merge": "^5.10.0"
+  }
+}

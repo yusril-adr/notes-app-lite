@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+  </head>
+
+  <body>
+    <header>
+      <app-bar title="Notes App"></app-bar>
+    </header>
+
+    <main class="uk-margin-top uk-margin-down">
+      <div class="uk-container">
+        <section id="add-notes" class="d-grid justify-center uk-margin-top">
+          <new-note-form></new-note-form>
+        </section>
+
+        <section id="note-list" class="uk-margin-top">
+          <h2>Non-Archived Notes</h2>
+          <hr class="uk-divider-icon uk-margin-remove-top" />
+
+          <note-list id="unarchived-notes"></note-list>
+        </section>
+
+        <section id="note-list" class="uk-margin-top">
+          <h2>Archived Notes</h2>
+          <hr class="uk-divider-icon uk-margin-remove-top" />
+
+          <note-list id="archived-notes"></note-list>
+        </section>
+      </div>
+    </main>
+
+    <footer class="d-grid justify-center uk-margin-top">
+      <p class="">© Yusril A. P. 2024 All rights reserved</p>
+    </footer>
+
+    <loading-element></loading-element>
+  </body>
+</html>
