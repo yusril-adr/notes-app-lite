@@ -24,8 +24,20 @@ button, input {
   display: flex;
 }
 
+.d-grid {
+  display: grid;
+}
+
 .flex-column {
   flex-direction: column;
+}
+
+.grid-template-col-3 {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.gap-1rem {
+  gap: 1rem;
 }
 
 .justify-center {
@@ -43,4 +55,44 @@ button, input {
 
 .form-group:not(:first-child) {
   margin-top: 1rem;
+}
+
+form#new-note-form textarea {
+  border: 0 none;
+  padding: 10px;
+  background: #fff;
+  color: #666;
+  border: 1px solid #e5e5e5;
+  transition: .2s ease-in-out;
+  transition-property: color, background-color, border;
+  font: inherit;
+}
+
+form#new-note-form textarea:focus {
+  outline: 0;
+  background-color: #fff;
+  color: #666;
+  border-color: #1e87f0;
+}
+
+.notes-item__title,
+.notes-item__body {
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.notes-item__title {
+  -webkit-line-clamp: 1;
+}
+
+.notes-item__body {
+  -webkit-line-clamp: 4;
+}
+
+note-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
 }

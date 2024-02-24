@@ -1,110 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes App</title>
-    <!-- UIkit CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/uikit@3.18.3/dist/css/uikit.min.css"
-    />
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="./styles/index.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes App</title>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.18.3/dist/css/uikit.min.css" />
 
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.18.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.18.3/dist/js/uikit-icons.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav class="uk-navbar-container uk-navbar-transparent">
-        <div class="uk-container">
-          <div class="uk-navbar navbar-padding">
-            <h1 class="uk-margin-remove text-size-normal text-light">Notes App</h1>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./styles/index.css" />
 
-            <div class="uk-navbar-right">
-              <button class="padding-x-1/2 uk-hidden@m" aria-label="Search.." uk-toggle="target: #modal-search" uk-icon="icon: search"></button>
-              <form class="uk-visible@m" id="search-form_navbar">
-                <div class="form-group">
-                  <div class="uk-inline">
-                    <span class="uk-form-icon" uk-icon="icon: search"></span>
-                    <input
-                      class="uk-input"
-                      name="search"
-                      type="text"
-                      placeholder="Search..."
-                      aria-label="Search..."
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav>
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.18.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.18.3/dist/js/uikit-icons.min.js"></script>
 
-      <div id="modal-search" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-padding-remove">
-          <form id="search-form_modal">
-            <div class="form-group d-flex w-full">
-              <div class="uk-inline w-full">
-                <span class="uk-form-icon" uk-icon="icon: search"></span>
-                <input
-                  class="uk-input"
-                  name="search"
-                  type="text"
-                  placeholder="Search..."
-                  aria-label="Search..."
-                />
-              </div>
-            </div>
-          </form>
-        </div>
+  <!-- Day.js -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <app-bar title="Notes App"></app-bar>
+
+  </header>
+
+  <main class="uk-margin-top uk-margin-down">
+    <div class="uk-container">
+      <section id="add-notes" class="d-grid justify-center uk-margin-top">
+        <new-note-form></new-note-form>
+      </section>
+
+      <section id="note-list" class="uk-margin-top">
+        <h2>Notes</h2>
+        <hr class="uk-divider-icon uk-margin-remove-top">
+
+        <note-list></note-list>
+      </section>
     </div>
-    
-    </header>
+  </main>
 
-    <main class="uk-margin-top uk-margin-down">
-      <div class="uk-container">
-        <section id="add-notes" class="d-flex justify-center uk-margin-top">
-          <button class="uk-button uk-button-primary" uk-toggle="target: #modal-add-form">
-            <span uk-icon="plus" class="uk-margin-right"></span>Add Note
-          </button>
-        </section>
+  <footer class="d-grid justify-center uk-margin-top">
+    <p class="">© Yusril A. P. 2024 All rights reserved</p>
+  </footer>
+  <script type="module" src="./scripts/index.js"></script>
+</body>
 
-        <section id="note-list">
-          <h2>Notes</h2>
-          <hr class="uk-divider-icon uk-margin-remove-top">
-
-          <div class="d-grid"></div>
-        </section>
-      </div>
-
-      <div id="modal-add-form" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-            <h2 class="uk-modal-title">New Note</h2>
-            <form>
-              <div class="form-group d-flex flex-column">
-                <label for="note_title" class="uk-text-default">Title</label>
-                <input type="text" name="title" id="note_title">
-              </div>
-
-              <div class="form-group d-flex flex-column">
-                <label for="note_body" class="uk-text-default">Body</label>
-                <textarea name="body" id="note_body" rows="5"></textarea>
-              </div>
-
-              <div class="uk-text-right uk-margin-top">
-                  <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                  <button class="uk-button uk-button-primary" type="submit">Save</button>
-              </div>
-            </form>
-        </div>
-    </div>    
-    </main>
-
-    <script type="module" src="./scripts/index.js"></script>
-  </body>
 </html>
